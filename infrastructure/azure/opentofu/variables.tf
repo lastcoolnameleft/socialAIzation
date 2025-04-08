@@ -1,6 +1,13 @@
 # This file defines input variables for the OpenTofu/Terraform configuration
 # Variables make the configuration more flexible and reusable
 
+# Required: The Azure subscription ID
+variable "subscription_id" {
+  description = "Subscription everything will be deployed to"
+  type        = string
+  # No default - this must be provided at runtime or in a .tfvars file
+}
+
 # Required: The Azure resource group where all resources will be deployed
 variable "resource_group_name" {
   description = "The name of the resource group"
@@ -47,14 +54,6 @@ variable "scenario_api_container_image" {
 }
 variable "conversation_api_container_image" {
   description = "The name of the conversation API account"
-  type        = string
-}
-variable "scenario_api_url" {
-  description = "The URL of the Scenario API account"
-  type        = string
-}
-variable "mongodb_connection_string" {
-  description = "Mongodb connection string"
   type        = string
 }
 variable "mongodb_database_name" {
